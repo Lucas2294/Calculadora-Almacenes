@@ -375,16 +375,20 @@ sub {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: fit-content;
 }
 .pasilloCelda{
   height: 4px;
   background-color: black;
+  width: 5rem;
+
 }
 
 .pasilloSupRiel{
   /* height: 4px;
   background-color: black;
   width: -webkit-fill-available; */
+ 
 }
 
 .callesDerecha{

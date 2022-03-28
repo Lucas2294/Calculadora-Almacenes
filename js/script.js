@@ -448,7 +448,7 @@ const dibujarVistaSuperior = () => {
   pasilloSupView.id = "pasilloSupView";
   pasilloSupView.className = "pasilloSup"
   pasilloSupView.innerHTML = `
-  <div> <img src="./img/transSup.svg" alt=""> </div>
+  <div style= "position: absolute;"> <img src="./img/transSup.svg" alt=""> </div>
   <div class="pasilloSupRiel" > </div>
   `;
 
