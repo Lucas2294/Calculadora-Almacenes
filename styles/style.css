@@ -1,0 +1,552 @@
+:root{
+  --width:100%;
+  --height:100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  cursor: default;
+  outline: none;
+  color: rgb(50, 50, 50);
+}
+body {
+  font-family: "Paduak", sans-serif;
+  font-weight: 450;
+  transform: translateZ(0);
+  background-color: #eee;
+  background-image: url("../img/Almacenes1.jpg");
+  background-repeat: round;
+}
+nav {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(52, 73, 94, 0.94);
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(230, 173, 48);
+}
+.btnav {
+  margin-top: 30px;
+  background: #e6ad30;
+  font-weight: 600;
+}
+#logo {
+  position: relative;
+  height: 70%;
+  margin: 0.6% 0 auto 0;
+  float: left;
+  padding-left: 1%;
+}
+.tab-content {
+  background-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-width: 0.001rem;
+  border-top: #fff;
+  border-color: rgb(215, 215, 215);
+  border-top-right-radius: 0,5rem;
+  border-top-left-radius: 0px;
+  border: 1px solid white;
+}
+.transpCont{
+  background-color: #28282800;
+}
+.wrapper {
+  display: grid;
+  margin-top: 0px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0px 30px;
+  grid-auto-rows: minmax(100px, auto);
+  background-color: rgba(255, 255, 255, 1);
+}
+.imagen {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
+}
+.wrappercalc {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 2;
+  padding-right: 1rem;
+  margin-bottom: 4rem;
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-width: 0.3rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  border-color: rgb(0, 0, 0);
+  background-color: #666;
+}
+.ware-selection {
+  height: min-content;
+  /* align-self: flex; */
+  justify-content: space-around;
+  margin-left: 30px;
+  padding: 1px;
+}
+.dimensiones {
+  grid-column: 1 / 1;
+}
+.resultados {
+  grid-column: 2 / 2;
+}
+.espacios {
+  grid-column: 6 / 8;
+  grid-row: 2;
+}
+.imagen-bottom {
+  grid-column: 1 / 8;
+  grid-row: 2;
+}
+.bg-modal {
+  display: none;
+  justify-content: center;
+  align-items: top;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+}
+.modal-content {
+  display: block;
+  width: 40%;
+  max-height: 45%;
+  height: auto;
+  border-radius: 4px;
+  padding: 2%;
+  position: relative;
+  display: table;
+  overflow-y: auto;    
+  overflow-x: auto;
+  min-width: 300px;  
+  margin-top: 30rem;
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.modal-tab-panel {
+  display: flex;
+  flex-flow: nowrap;
+  margin-top: 0px;
+  gap: 30px;
+}
+.modal-multiprofundidad{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 2rem;
+}
+.modal-inputs {
+  width: 16rem;
+  margin-top: 10%;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+  border-width: 0.3rem;
+  padding: 1rem;
+  background-color: #666;
+  margin-bottom: 5%;
+  height: fit-content;
+}
+/* .modal-img {
+  width: 50%;
+  margin-top: 10%;
+} */
+.divConfigMult{
+  margin: auto;
+}
+div.form {
+  grid-column: 1 / 4;
+  /* display: block; */
+  /* margin-bottom: 4rem; */
+  /* margin-left: 35%; */
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+form.ware-selection {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+/* @media (max-width: 1048px) {
+  .modal-content {
+    display: block;
+    width: 60%;
+    max-height: 75%;
+    height: auto;
+    border-radius: 4px;
+    padding: 2%;
+    position: relative;
+  }
+  .wrappercalc {
+    grid-column: 1 / 8;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 2;
+    padding-right: 1rem;
+    margin-bottom: 4rem;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-width: 0.3rem;
+    margin-right: 1rem;
+    border-color: rgb(215, 215, 215);
+  }
+  #simpledoble {
+    display: none;
+  }
+  #imgMulti {
+    display: none;
+  }
+  form.ware-selection {
+    grid-row: 1;
+    display: block;
+    float: right;
+    text-align: center;
+  }
+  #multiWrap {
+    grid-row: 1;
+  }
+} */
+
+/*--------------------------LUCAS----------------------------*/
+.btn-secondary {
+  background-color: #e6ad30;
+  border-color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+h3 {
+  color: black;
+}
+sub {
+  color: whitesmoke;
+}
+.pestaña {
+  color: #ffc039;
+}
+.titulo {
+  color: #ffc039;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5), 2px 2px 1px rgba(14,43,18,0.58);
+}
+.modalT {
+  color: #BABABA;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.modalT1 {
+  color: #BABABA;
+}
+
+.formSimpleoDoble{
+  grid-column: 1/4;
+  margin-right: 3rem;
+}
+
+.wrapperSyD{
+  grid-auto-rows: minmax(5rem, auto);
+}
+
+.wrapperMultiprof{
+  grid-row: 1;
+}
+
+
+/* Modal simulacion vista frontal */
+.frontView{
+  box-sizing: border-box;
+  height: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  grid-column: 4/8;
+  background-color: aquamarine;
+  margin-right: 1.5rem;
+  border-radius: 10px;
+}
+
+.celdaAltura{
+  box-sizing: border-box;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+}
+
+.cargaDiv{
+  box-sizing: border-box;
+  width: 7rem;
+  height: 9rem;
+  background-image: url(../img/cargaFront.svg);
+}
+
+.pasilloFrontDiv{
+  box-sizing: border-box;
+  width: 7rem;
+  background-color: antiquewhite;
+  flex-direction: column;
+  border-left: solid 2px #FF8000;
+  border-right: solid 2px #FF8000;
+  display: flex;
+  align-items: center;
+  
+}
+
+.pasilloFrontSup{
+  /* background-image: url(../img/ColumnaSup.svg); */
+  width: 7rem;
+  height: 90px;
+}
+
+.pasilloFrontMedio{
+  width: 20px;
+  height: -webkit-fill-available;
+  background-color: #e3ab2e;
+}
+
+.pasilloFrontInf{
+  width: 7rem;
+  height: 224px;
+}
+
+.divModalSimu{
+  display: flex;
+  justify-content: center;
+  border: solid 1px black;
+  border-radius: 3px;
+  width: fit-content;
+  padding: 10px;
+  margin: auto;
+  background-color: antiquewhite;
+  padding-bottom: 0;
+}
+
+.divPiso{
+  box-sizing: border-box;
+  width: 7rem;
+  height: 5rem;
+  background-image: url(../img/baseFrontView.svg);
+}
+
+
+/* Div modal vista superior */
+.divVistaSup{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: solid 2px black;
+  border-radius: 4px;
+  padding: 2rem;
+  background-image: url(../img/solid.png);
+}
+.calleIzq{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.profCargaIzq{
+  box-sizing: border-box;
+  width: 5rem;
+  height: 5rem;
+  background-image: url(../img/cargaSup.svg);
+}
+.callesIzquierda{
+  display: flex;
+}
+.pasilloSup{
+  box-sizing: border-box;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pasilloCelda{
+  height: 4px;
+  background-color: black;
+}
+
+.pasilloSupRiel{
+  /* height: 4px;
+  background-color: black;
+  width: -webkit-fill-available; */
+}
+
+.callesDerecha{
+  display: flex;
+}
+@media (max-width: 1280px) {
+  .divModalSimu{
+    justify-content: flex-start;
+    max-width: 95%;
+    overflow-x: auto;
+  }
+  .modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+  
+
+  }
+  .divVistaSup{
+    max-width: 100%;
+    max-width: -webkit-fill-available;
+    overflow-x: auto;
+  }
+  .divModalSimu::-webkit-scrollbar {
+    height: 8gipx;              /* height of horizontal scrollbar ← You're missing this */
+    width: 4px;               /* width of vertical scrollbar */
+    border: 1px solid black;
+    background-color: rgb(240, 240, 240);
+  }
+  .divModalSimu::-webkit-scrollbar-thumb {
+    background-color: #84817f;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid black;
+  }
+  .divVistaSup::-webkit-scrollbar {
+    height: 8px;              /* height of horizontal scrollbar ← You're missing this */
+    width: 4px;               /* width of vertical scrollbar */
+    border: 1px solid black;
+    background-color: rgb(240, 240, 240);
+  }
+  .divVistaSup::-webkit-scrollbar-thumb {
+    background-color: #84817f;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid black;
+  }
+}
+@media (max-width: 920px) {
+  .wrapper {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .modal-content { 
+    display: block;
+    width: 60%;
+    max-height: 75%;
+    height: auto;
+    border-radius: 4px;
+    padding: 2%;
+    position: relative;
+       
+
+  }
+  .wrappercalc {
+    display: grid;
+    grid-column: 1 / 10;
+    grid-row: 2;
+    grid-template-columns: 2;
+    /* border-style: solid;
+    border-radius: 0.5rem;
+    border-width: 0.3rem;
+    border-color: rgb(215, 215, 215); */
+    border-style: none;
+    
+  }
+  .imagen-bottom {
+    display: none;
+  }
+
+  #simpledoble {
+    display: none;
+  }
+  #imgMulti {
+    display: none;
+  }
+  form.ware-selection {
+    grid-row: 1;
+    display: block;
+    float: right;
+    text-align: center;
+  }
+  #multiWrap {
+    grid-row: 1;
+  }
+
+} 
+
+
+
+
+
+
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* RADIO BUTTON MAGIC STARTS HERE*/
+label {
+  display: block;
+  margin-bottom: 4px;
+  position: relative;
+  cursor: pointer;
+  color: whitesmoke;
+}
+/* hide default radio button  */
+label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* custom radio button */
+label span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: 0.3s background-color;
+}
+label span:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+label:hover span {
+  background-color: #ccc;
+}
+/**** Here's the trick ***/
+label input:checked ~ span {
+  background-color: #e6ad30;
+}
+label input:checked ~ span:after {
+  display: block;
+}
