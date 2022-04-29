@@ -41,7 +41,7 @@ nav {
   padding-left: 1%;
 }
 .tab-content {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #000000b5;
   border-style: solid;
   border-radius: 0.5rem;
   border-width: 0.001rem;
@@ -49,7 +49,7 @@ nav {
   border-color: rgb(215, 215, 215);
   border-top-right-radius: 0,5rem;
   border-top-left-radius: 0px;
-  border: 1px solid white;
+  border: 1px solid #e6ad30;
 }
 .transpCont{
   background-color: #28282800;
@@ -60,7 +60,6 @@ nav {
   grid-template-columns: repeat(7, 1fr);
   gap: 0px 30px;
   grid-auto-rows: minmax(100px, auto);
-  background-color: rgba(255, 255, 255, 1);
 }
 .imagen {
   grid-column: 1 / 5;
@@ -114,7 +113,7 @@ nav {
 }
 .modal-content {
   display: block;
-  width: 40%;
+  width: 80%;
   max-height: 45%;
   height: auto;
   border-radius: 4px;
@@ -154,7 +153,7 @@ nav {
   padding: 2rem;
 }
 .modal-inputs {
-  width: 16rem;
+  width: 40%;
   margin-top: 10%;
   border: 3px solid black;
   border-radius: 0.5rem;
@@ -227,6 +226,13 @@ form.ware-selection {
 } */
 
 /*--------------------------LUCAS----------------------------*/
+.tituloPag{
+  background-color: #0000007a;
+  max-width: fit-content;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
 .btn-secondary {
   background-color: #e6ad30;
   border-color: black;
@@ -268,6 +274,11 @@ sub {
   grid-row: 1;
 }
 
+.wrapInfo{
+  grid-column: 4/-1;
+  padding-right: 1rem;
+  margin-bottom: 4rem;
+}
 
 /* Modal simulacion vista frontal */
 .frontView{
@@ -405,16 +416,15 @@ sub {
     flex-direction: column;
     align-items: center;
     width: 90vw;
-  
-
   }
   .divVistaSup{
     max-width: 100%;
     max-width: -webkit-fill-available;
     overflow-x: auto;
   }
+
   .divModalSimu::-webkit-scrollbar {
-    height: 8gipx;              /* height of horizontal scrollbar ← You're missing this */
+    height: 8px;              /* height of horizontal scrollbar ← You're missing this */
     width: 4px;               /* width of vertical scrollbar */
     border: 1px solid black;
     background-color: rgb(240, 240, 240);
@@ -485,6 +495,12 @@ sub {
   }
   #multiWrap {
     grid-row: 1;
+  }
+
+  .modal-multiprofundidad{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
 } 

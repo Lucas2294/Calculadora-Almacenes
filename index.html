@@ -36,18 +36,18 @@
 
   <div class="container" id="todo">
     <div class="row col-lg-12 page-header titulo">
-      <h1>
+      <h1 class="tituloPag">
         Dimensionamiento de almacén
         <small class="titulo">- Calles, niveles y profundidades</small>
       </h1>
     </div>
     <div role="tabpanel">
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
+        <li role="presentation" class="active pestañaBg">
           <a href="#multiple" aria-controls="multiple" data-toggle="tab" role="tab"><b class="pestaña">1- Múltiple
               Profundidad</b></a>
         </li>
-        <li role="presentation">
+        <li role="presentation" class="pestañaBg">
           <a href="#simple" aria-controls="simple" data-toggle="tab" role="tab"><b class="pestaña">2- Doble y simple
               profundidad</b></a>
         </li>
@@ -120,6 +120,9 @@
               <div class="buttonHolder" style="text-align: center; grid-column: 1 / 8">
                 <button id="modalSimu" type="button" class="btn btn-secondary abrirModal">Simular almacén</button>
               </div>
+            </div>
+            <div class="wrapInfo">
+              <p style="color: #fff;text-align: center;"> Informacion multiprofundid...</p>
             </div>
           </div>
         </div>
@@ -274,7 +277,6 @@
                 <!-- <img src="img/detalleAltoAlto.PNG" class=".et-cart-info img-responsive" alt="Responsive image" /> -->
               </div>
               <div class="modal-inputs altura divConfigMult">
-                <!-- MODIFICACION LUCAS -->
                 <div>
                   <div class="form-group">
                     <label>Alto de Pallet [h<sub>p</sub>]</label>
@@ -295,7 +297,7 @@
                 </div>
               </div>
               <div class="imagenEstructura divConfigMult">
-                <img src="./img/VistaDoble2.png" alt="">
+                <img src="./img/VistaDoble2.png" alt="" class=".et-cart-info img-responsive">
               </div>
               <div class="modal-inputs inputsEstructura divConfigMult">
                 <div class="form-group">
@@ -303,7 +305,7 @@
                   <input type="number" class="form-control" id="qsuperior" placeholder="" value="3" />
                 </div>
                 <div class="form-group">
-                  <label>Holgura ancho [Q<sub>x</sub>]</label>
+                  <label>Holgura lateral [Q<sub>x</sub>]</label>
                   <input type="number" class="form-control" id="qancho" placeholder="" value="3" />
                 </div>
                 <div class="form-group">
@@ -329,14 +331,6 @@
               </div>
               <div class="modal-inputs ancho">
                 <div class="form-group">
-                  <label>Ancho pallet [W<sub>p</sub>]</label>
-                  <input type="number" class="form-control" id="anchopallet" placeholder="" value="4" />
-                </div>
-                <div class="form-group">
-                  <label>Holgura ancho [Q<sub>x</sub>]</label>
-                  <input type="number" class="form-control" id="qancho" placeholder="" value="3" />
-                </div>
-                <div class="form-group">
                   <label>Cabecera Adelante [Q<sub>a</sub>]</label>
                   <input type="number" class="form-control" id="vanoadelante" placeholder="" value="3" />
                 </div>
@@ -357,10 +351,6 @@
                 <img src="img/detalleProf.PNG" class=".et-cart-info img-responsive" alt="Responsive image" />
               </div>
               <div class="modal-inputs largo">
-                <div class="form-group">
-                  <label>Largo de pallet [L<sub>p</sub>]</label>
-                  <input type="number" class="form-control" id="largopallet" placeholder="" value="4" />
-                </div>
                 <div class="form-group">
                   <label>Holgura profundidad [Q<sub>z</sub>]</label>
                   <input type="number" class="form-control" id="qprof" placeholder="" value="3" />
@@ -432,7 +422,7 @@
                 </div>
               </div>
               <div class="imagenEstructura divConfigMult">
-                <img src="./img/VistaDoble2.png" alt="">
+                <img src="./img/VistaDoble2.png" alt="" class=".et-cart-info img-responsive">
               </div>
               <div class="modal-inputs inputsEstructura divConfigMult">
                 <div class="form-group">
@@ -440,7 +430,7 @@
                   <input type="number" class="form-control" id="s_qsuperior" placeholder="" value="3" />
                 </div>
                 <div class="form-group">
-                  <label>Holgura ancho [Q<sub>x</sub>]</label>
+                  <label>Holgura lateral [Q<sub>x</sub>]</label>
                   <input type="number" class="form-control" id="s_qancho" placeholder="" value="3" />
                 </div>
                 <div class="form-group">
