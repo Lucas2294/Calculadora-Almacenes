@@ -57,7 +57,7 @@ nav {
 .wrapper {
   display: grid;
   margin-top: 0px;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   gap: 0px 30px;
   grid-auto-rows: minmax(100px, auto);
 }
@@ -65,8 +65,18 @@ nav {
   grid-column: 1 / 5;
   grid-row: 1 / 2;
 }
+.wrapperFormPrincipal{
+  grid-column: 1 / 5;
+}
+.formCargaPrincipal{
+  margin-top: 3rem;
+}
+.formCarga{
+  width: fit-content;
+  margin: auto;
+}
 .wrappercalc {
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   grid-row: 2;
   display: grid;
   grid-template-columns: 2;
@@ -86,6 +96,7 @@ nav {
   justify-content: space-around;
   margin-left: 30px;
   padding: 1px;
+  
 }
 .dimensiones {
   grid-column: 1 / 1;
@@ -106,7 +117,7 @@ nav {
   justify-content: center;
   align-items: top;
   width: 100%;
-  height: auto;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
@@ -149,7 +160,7 @@ nav {
 .modal-multiprofundidad{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  /* grid-template-rows: repeat(2, 1fr); */
   padding: 2rem;
 }
 .modal-inputs {
@@ -163,12 +174,21 @@ nav {
   margin-bottom: 5%;
   height: fit-content;
 }
+.inputConfig{
+  width: auto;
+  margin-inline: auto;
+}
 /* .modal-img {
   width: 50%;
   margin-top: 10%;
 } */
 .divConfigMult{
   margin: auto;
+  width: auto;
+}
+.divDimenCarga{
+  margin: 0 1.5rem 1rem 1.5rem;
+  background: url(../img/paterTriangles.svg);
 }
 div.form {
   grid-column: 1 / 4;
@@ -226,6 +246,10 @@ form.ware-selection {
 } */
 
 /*--------------------------LUCAS----------------------------*/
+.containerGral{
+  width: 90%;
+}
+
 .tituloPag{
   background-color: #0000007a;
   max-width: fit-content;
@@ -239,7 +263,7 @@ form.ware-selection {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 h3 {
-  color: black;
+  color: #BABABA;
 }
 sub {
   color: whitesmoke;
@@ -256,6 +280,7 @@ sub {
   font-weight: 600;
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 0;
 }
 .modalT1 {
   color: #BABABA;
@@ -264,6 +289,7 @@ sub {
 .formSimpleoDoble{
   grid-column: 1/4;
   margin-right: 3rem;
+  grid-column: 1 / 5;
 }
 
 .wrapperSyD{
@@ -272,15 +298,65 @@ sub {
 
 .wrapperMultiprof{
   grid-row: 1;
+  height: fit-content;
+  background: url(../img/paterTriangles.svg);
 }
-
+.bgSimple{
+  background: url(../img/paterTriangles.svg);
+}
 .wrapInfo{
-  grid-column: 4/-1;
+  grid-column: 5/-1;
   padding-right: 1rem;
   margin-bottom: 4rem;
 }
 
 /* Modal simulacion vista frontal */
+.cotaAltura{
+  border-right: 2px dashed black;
+  margin-right: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cotaInfo{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    margin-right: 5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+.cotaSup{
+  background-color: antiquewhite;
+  height: 5rem;
+  width: 103%;
+  border-radius: 3px 3px 0 0;
+}
+.frontViewContent{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+.divSimuFront{
+  display: flex;
+    border-radius: 0 0 3px 3px;
+    width: fit-content;
+    padding: 7% 3% 1% 0;
+    margin: auto;
+    background-color: antiquewhite;
+    padding-bottom: 0;
+    border-top: 2px dashed black;
+    padding-right: 0;
+    padding-top: 1rem;
+    margin-bottom: 0;
+}
+.cotaAnchoFrontal{
+  grid-column: 1/-1;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin: auto;
+}
+
 .frontView{
   box-sizing: border-box;
   height: fit-content;
@@ -302,9 +378,9 @@ sub {
 
 .cargaDiv{
   box-sizing: border-box;
-  width: 7rem;
-  height: 9rem;
-  background-image: url(../img/cargaFront.svg);
+  width: 5rem;
+  height: 7rem;
+  background-image: url(../img/cargaFront1.svg);
 }
 
 .pasilloFrontDiv{
@@ -337,34 +413,38 @@ sub {
 }
 
 .divModalSimu{
-  display: flex;
-  justify-content: center;
-  border: solid 1px black;
-  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  border-radius: 3px 3px 3px 3px;
   width: fit-content;
-  padding: 10px;
+  max-width: 100%;
+  padding: 3% 3% 1% 0;
   margin: auto;
+  margin-bottom: 4rem;
   background-color: antiquewhite;
   padding-bottom: 0;
+  overflow-x: scroll;
 }
 
 .divPiso{
   box-sizing: border-box;
-  width: 7rem;
-  height: 5rem;
-  background-image: url(../img/baseFrontView.svg);
+  width: 5rem;
+  height: 4rem;
+  background-image: url(../img/baseFrontView1.svg);
 }
 
 
 /* Div modal vista superior */
 .divVistaSup{
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  border: solid 2px black;
-  border-radius: 4px;
-  padding: 2rem;
+  padding: 1rem 12rem 2rem 2rem;
   background-image: url(../img/solid.png);
+  overflow: overlay;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(4, auto);
+  padding-top: 0;
 }
 .calleIzq{
   box-sizing: border-box;
@@ -379,6 +459,8 @@ sub {
 }
 .callesIzquierda{
   display: flex;
+  grid-column: 2/-1;
+
 }
 .pasilloSup{
   box-sizing: border-box;
@@ -387,6 +469,7 @@ sub {
   flex-direction: row;
   align-items: center;
   width: fit-content;
+  grid-column: 2/-1;
 }
 .pasilloCelda{
   height: 4px;
@@ -404,7 +487,37 @@ sub {
 
 .callesDerecha{
   display: flex;
+  grid-column: 2/-1;
 }
+
+.vistaSupCotas{
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  background-image: url(../img/solid.png);
+}
+.cotaSuperiorS{
+  height: min-content;
+  grid-column: 1/-1;
+  border-bottom: 2px dashed black;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  grid-row: 1/2;
+  text-align: initial;
+  padding-left: 4rem;
+  margin-bottom: 1rem;
+}
+.cotaLateralS{
+  grid-column: 1/2;
+  border-left: 2px dashed black;
+  grid-row: 1/-1;
+  margin-right: 2rem;
+  /* background: aliceblue; */
+}
+
+
+
+
+
 @media (max-width: 1280px) {
   .divModalSimu{
     justify-content: flex-start;
@@ -508,7 +621,28 @@ sub {
 
 
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #e6ad30 #000000;
+  }
 
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+    height: 14px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #e6ad30;
+    border-radius: 10px;
+    border: 3px solid #000000;
+  }
 
 
 

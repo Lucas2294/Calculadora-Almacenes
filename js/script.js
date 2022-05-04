@@ -47,6 +47,9 @@ $(document).ready(() => {
   calcularMultiprof();
   calcularSimple();
 
+
+  dibujarVistaFrontal();
+  dibujarVistaSuperior();
   // CAMBIA IMAGEN() SEGUN TRANS SIMPLE O DOBLE
   $("input:radio[name=tipoAlmacen]").click(function () {
     let nroTrans = document.getElementById("transelevadores_s").value;
@@ -337,15 +340,15 @@ function printPDF() {
 
 
 // LUCAS 
-var modal = document.getElementById("modal");
-document.addEventListener('keydown', function(e) {
-    let keyCode = e.keyCode;
-    document.getElementById("result").innerHTML = "Key Code: "+keyCode+"<br/> Key: "+e.key+"<br/>";
-    if (keyCode === 27) {//keycode is an Integer, not a String
-      modal.classList.remove('modal-visible');
-      document.getElementById("result").innerHTML += "Escape key pressed. Modal hidden.";
-    }
-});
+// var modal = document.getElementById("modal");
+// document.addEventListener('keydown', function(e) {
+//     let keyCode = e.keyCode;
+//     document.getElementById("result").innerHTML = "Key Code: "+keyCode+"<br/> Key: "+e.key+"<br/>";
+//     if (keyCode === 27) {//keycode is an Integer, not a String
+//       modal.classList.remove('modal-visible');
+//       document.getElementById("result").innerHTML += "Escape key pressed. Modal hidden.";
+//     }
+// });
 
 // Calcular dimensiones unidad de carga multiprof
 
@@ -356,6 +359,7 @@ function calcularUnidCargaMultiprof() {
   calcularMultiprof();
 }
 
+
 // Dibujar vista frontal
 const dibujarVistaFrontal = () => {
   let divVista = document.getElementById('modalFrontView');
@@ -363,7 +367,29 @@ const dibujarVistaFrontal = () => {
   let profundidadGral = document.getElementById("profundidad_m").value;
   let nivelesGral = document.getElementById("niveles_m").value;
   const fragment = document.createDocumentFragment();
-  const pasilloSup = document.getElementById('pasilloFrontSup');
+  let ancho = document.getElementById("ancho_m").value
+  let altoMts = document.getElementById("alto_m").value
+  
+  // const pasilloSup = document.getElementById('pasilloFrontSup');
+
+  let cotaAncho = document.createElement("div");
+  cotaAncho.className = "cotaAnchoFrontal"
+  cotaAncho.innerHTML = `[ Ancho total ${ancho}Mts - ${profundidadGral} Profundidades ]`
+  divVista.appendChild(cotaAncho)
+
+
+
+  let cotaAltura = document.createElement("div");
+  cotaAltura.className = "cotaAltura"
+  cotaAltura.innerHTML = `<div class="cotaInfo">
+   [ Altura total ${altoMts}Mts - ${nivelesGral} Niveles ]
+  </div>`
+  divVista.appendChild(cotaAltura);
+
+  divDepositoFront = document.createElement("div");
+divDepositoFront.className = "divSimuFront"
+
+
   //For que recorre las profundidades
   for (let prof = profundidadGral; prof > 0; prof--) {
     //Por cada profundidad crea un div que representa una celda o columna
@@ -383,7 +409,7 @@ const dibujarVistaFrontal = () => {
       }
       
     }
-    
+
     fragment.appendChild(celdaAltura); 
   }
   // Dibujar pasillo
@@ -426,8 +452,8 @@ const dibujarVistaFrontal = () => {
   }
   
 
-
-  divVista.appendChild(fragment);
+  divVista.appendChild(divDepositoFront)
+  divDepositoFront.appendChild(fragment);
 
 
 }
@@ -439,14 +465,30 @@ const dibujarVistaSuperior = () => {
   let divcallesDerecha = document.getElementById('callesDerecha');
   let profundidadGral = document.getElementById("profundidad_m").value;
   let callesGral = document.getElementById("calles_m").value;
+  let anchoTotal = document.getElementById("ancho_m").value
+  let largoTotal = document.getElementById("largo_m").value;
   let pasillo = document.getElementById("pasilloSupView")
   const fragment = document.createDocumentFragment()
   divcallesIzq.innerHTML = null
   divcallesDerecha.innerHTML = null  
 
+
+
+
+  let divCotaSup = document.createElement("div");
+  divCotaSup.className = "cotaSuperiorS";
+  divCotaSup.innerHTML = `[ Largo total ${largoTotal}Mts - ${callesGral} Calles ]`;
+
+  let cotaLateral = document.createElement("div");
+  cotaLateral.className = "cotaLateralS cotaInfo";
+  cotaLateral.innerHTML = `[ Ancho total ${anchoTotal}Mts - ${profundidadGral} Profundidades ]`;
+
+  fragment.appendChild(divCotaSup);
+  fragment.appendChild(cotaLateral);
+
   const pasilloSupView = document.createElement('div');
   pasilloSupView.id = "pasilloSupView";
-  pasilloSupView.className = "pasilloSup"
+  pasilloSupView.className = "pasilloSup";
   pasilloSupView.innerHTML = `
   <div style= "position: absolute;"> <img src="./img/transSup.svg" alt=""> </div>
   <div class="pasilloSupRiel" > </div>
