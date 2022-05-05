@@ -60,7 +60,9 @@
         <br />
         <!-- TAB MULTIPLE PROFUNDIDAD -->
         <div role="tabpanel" class="tab-pane active contenido" id="multiple">
+          
           <div class="wrapper">
+            
             <div class="wrapperFormPrincipal">
 
               <div class="formDimAndUnits wrappercalc wrapperMultiprof gridWrapp" id="multiWrap">
@@ -125,6 +127,13 @@
                     data-index="9">Calcular</button>
                 </div>
 
+                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                  <button id="ucarga" type="button" class="btn btn-secondary abrirModal">Configuración de
+                    medidas</button>
+                </div>
+                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                  <button id="modalSimu" type="button" class="btn btn-secondary abrirModal">Simular almacén</button>
+                </div>
 
               </div>
               <!-- <div class="formDimAndUnits wrappercalc wrapperMultiprof" id="multiWrap">
@@ -240,28 +249,179 @@
         </div>
         <!-- TAB SIMPLE Y DOBLE PROFUNDIDAD -->
         <div role="tabpanel" class="tab-pane contenido" id="simple">
+         
           <div class="wrapper wrapperSyD">
+
+            
             <div class="formSimpleoDoble">
               <div class="form">
-                <form class="ware-selection" id="tipo">
-                  <label for="radioSimple" style="padding-left: 30px; align-content: right; color: #666">Simple
+                <form class="wareSelec" id="tipo">
+                  <label for="radioSimple" style="padding-left: 30px; align-content: right; color: #ffffffa6">Simple
                     Profundidad
                     <input type="radio" id="radioSimple" name="tipoAlmacen" value="Simple"
                       style="align-content: right" />
                     <span></span> </label>
-                  <label for="radioDoble" style="padding-left: 30px; color: #666">Doble Profundidad
+                  <label for="radioDoble" style="padding-left: 30px; color: #ffffffa6">Doble Profundidad
                     <input type="radio" id="radioDoble" name="tipoAlmacen" value="Doble" checked="checked" />
                     <span></span> </label>
                 </form>
               </div>
+            </div>
+
+
+
+
+
+
+            <div class="wrapperFormPrincipal">
+
+              <div class="wrappercalc gridWrapp bgSimple" id="simpleWrap">
+
+                <div class="dimensiones inputform" id="wDimensionesSimple">
+
+                  <form name="ipForm">
+
+                    <h3 style="text-align: center; font-family: 'Hind', Tahoma, Geneva, Verdana, sans-serif">Dimensiones
+                    </h3>
+                    <div class="form-group">
+                      <br />
+                      <label>Largo Total  [L<sub>T</sub>]</label>
+                      <input type="number" class="form-control" id="largo_s" placeholder="" value="50"
+                        data-index="10" />
+                    </div>
+                    <div class="form-group">
+                      <label>Ancho [W<sub>T</sub>]</label>
+                      <input type="number" class="form-control" id="ancho_s" placeholder="" value="14"
+                        data-index="11" />
+                    </div>
+                    <div class="form-group">
+                      <label>Alto [h<sub>T</sub>]</label>
+                      <input type="number" class="form-control" id="alto_s" placeholder="" value="18.00"
+                        data-index="12" />
+                    </div>
+                    <div class="form-group">
+                      <label>Alto de Pallet [h<sub>p</sub>]</label>
+                      <input type="number" class="form-control" id="altopallet_s" placeholder="" value="2.00"
+                        data-index="13" onfocusout="setPalletHeight('simple')" />
+                    </div>
+                  </form>
+                </div>
+                <div class="resultados inputform" id="wResultadosSimple">
+                  <form name="ipForm2">
+                    <h3 style="text-align: center; font-family: 'Hind', Tahoma, Geneva, Verdana, sans-serif">Unidades
+                    </h3>
+                    <br />
+                    <div class="form-group">
+                      <label>Calles</label>
+                      <input type="number" class="form-control" id="calles_s" placeholder="" value="1"
+                        data-index="15" />
+                    </div>
+                    <div class="form-group">
+                      <label>Transelevadores</label>
+                      <input type="number" class="form-control" id="transelevadores_s" placeholder="" value="1"
+                        data-index="16" />
+                    </div>
+                    <div class="form-group">
+                      <label>Niveles</label>
+                      <input type="number" class="form-control" id="niveles_s" placeholder="" value="1"
+                        data-index="17" />
+                    </div>
+                    <div class="form-group">
+                      <label>Profundidades</label>
+                      <input type="number" class="form-control" id="profundidad_s" placeholder="" value="1" readonly />
+                    </div>
+                    <div class="form-group">
+                      <label>Posiciones Totales</label>
+                      <input type="number" class="form-control" id="posiciones_s" placeholder="" value="1" readonly />
+                    </div>
+                  </form>
+                </div>
+                <div class="buttonHolder inputform" style="grid-column: 1 / 2">
+                  <button onclick="calcularSimple(14)" type="#" class="btn btn-primary"
+                    data-index="14">Calcular</button>
+                </div>
+                <div class="buttonHolder inputform" style="grid-column: 2 / 4">
+                  <button onclick="calcularDimensionesSimple(9)" type="#" class="btn btn-primary"
+                    data-index="18">Calcular</button>
+                </div>
+                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                  <button id="ucargasimple" type="button" class="btn btn-secondary abrirModal">Configuración de unidad
+                    de
+                    carga</button>
+                </div>
+                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                  <button id="modalSimuSimple" type="button" class="btn btn-secondary abrirModal">Simular
+                    almacén</button>
+                </div>
+              </div>
+
+              <div class="dimensionesCarga">
+
+                <div class="modal-inputs altura divConfigMult divDimenCarga">
+                  <h3 style="text-align: center; font-family: 'Hind', Tahoma, Geneva, Verdana, sans-serif"
+                    class="greyText">Unidad de carga</h3>
+                  <div class="formCargaPrincipal">
+
+                    <div class="form-group formCarga">
+                      <label>Alto de Pallet [h<sub>p</sub>]</label>
+                      <input type="number" class="form-control" id="s_altopallet_t" placeholder="" value="2.00" />
+                    </div>
+                    <div class="form-group formCarga">
+                      <label>Ancho pallet [W<sub>p</sub>]</label>
+                      <input type="number" class="form-control" id="s_anchopallet" placeholder="" value="4" />
+                    </div>
+                    <div class="form-group formCarga">
+                      <label>Largo de pallet [L<sub>p</sub>]</label>
+                      <input type="number" class="form-control" id="s_largopallet" placeholder="" value="4" />
+                    </div>
+
+                    <div class="buttonHolder">
+                      <button onclick="calcularAlturaSimple()" type="#"
+                        class="btn btn-primary calcular_altura">Aplicar</button>
+                    </div>
+
+                    <img src="img/palletCotas.png" class=".et-cart-info img-responsive" alt="Responsive image" />
+                  </div>
+                </div>
+
+
+              </div>
+
 
             </div>
 
 
-            <div class="wrapperFormPrincipal">
+            <div class="wrapInfo" id="divSimulacionSyD">
+
+
+              <div class="">
+                <h1 class="modalT">VISTA FRONTAL</h1>
+              </div>
+              <div id="modalFrontViewSyD" class="divModalSimu"> </div>
+              <h1 class="modalT">VISTA SUPERIOR</h1>
+              <div class="vistaSupCotas">
+                <div id="divVistaSupSyD" class="divVistaSup">
+                  <div id="callesIzquierdaSyD" class="callesIzquierda"></div>
+                  <div id="callesDerechaSyD" class="callesDerecha"></div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- <div class="wrapperFormPrincipal">
+
               <div class="wrappercalc bgSimple" id="simpleWrap">
+
                 <div class="dimensiones inputform" id="wDimensionesSimple">
+
                   <form name="ipForm">
+                    
                     <h3 style="text-align: center; font-family: 'Hind', Tahoma, Geneva, Verdana, sans-serif">Dimensiones
                     </h3>
                     <div class="form-group" style="padding: 0 30px 0 20px">
@@ -369,7 +529,7 @@
               </div>
 
 
-            </div>
+            </div> -->
 
 
 
@@ -389,7 +549,7 @@
 
 
   <!----------------------- MODAL LUCAS     -->
-  <div class="bg-modal" id="modalLucas">
+  <!-- <div class="bg-modal" id="modalLucas"> -->
     <!-- <div class="modal-content modalVistas">
 
       <div id="cruzBtn" class="close" data-dismiss="modal" aria-label="Close">+</div>
@@ -403,7 +563,7 @@
         <div id="callesDerecha" class="callesDerecha"></div>
       </div>
     </div> -->
-  </div>
+  <!-- </div> -->
   <!-- -------------------- MODAL LUCAS FIN -->
 
 
@@ -712,11 +872,16 @@
       dibujarVistaSuperior(e.target.id);
     });
 
-    document.getElementById("modalSimuSimple").addEventListener("click", () => {
-      dibujarVistaFrontal();
-      dibujarVistaSuperior();
-      modalLucas.style.display = "flex";
+    document.getElementById("modalSimuSimple").addEventListener("click", (e) => {
+      dibujarVistaFrontal(e.target.id);
+      dibujarVistaSuperiorSyD(e.target.id);
     });
+
+
+
+
+
+
     // LUCAS FIN
 
 
@@ -735,12 +900,6 @@
       }
     }, false);
 
-    document.addEventListener("click", (e) => {
-      let clic = e.target;
-      if (modalLucas.style.display == "flex" && clic === modalLucas || clic.id === "cruzBtn") {
-        modalLucas.style.display = "none";
-      }
-    }, false);
 
     document.addEventListener('keydown', (event) => {
       const keyName = event.keyCode;

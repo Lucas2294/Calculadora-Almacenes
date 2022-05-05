@@ -44,12 +44,16 @@ $(document).ready(() => {
   document.getElementById("vanopasillo").value = tabLargo.vanopasillo;
   document.getElementById("s_vanopasillo").value = tabLargo.vanopasillo;
 
-  calcularMultiprof();
+  calcularMultiprof("modalSimu");
   calcularSimple();
 
 
   dibujarVistaFrontal();
+  dibujarVistaFrontal("modalSimuSimple");
   dibujarVistaSuperior();
+  dibujarVistaSuperiorSyD();
+
+
   // CAMBIA IMAGEN() SEGUN TRANS SIMPLE O DOBLE
   $("input:radio[name=tipoAlmacen]").click(function () {
     let nroTrans = document.getElementById("transelevadores_s").value;
@@ -361,14 +365,32 @@ function calcularUnidCargaMultiprof() {
 
 
 // Dibujar vista frontal
-const dibujarVistaFrontal = () => {
+const dibujarVistaFrontal = (idEven) => {
   let divVista = document.getElementById('modalFrontView');
-  divVista.innerHTML = null;
   let profundidadGral = document.getElementById("profundidad_m").value;
   let nivelesGral = document.getElementById("niveles_m").value;
-  const fragment = document.createDocumentFragment();
   let ancho = document.getElementById("ancho_m").value
   let altoMts = document.getElementById("alto_m").value
+  const fragment = document.createDocumentFragment();
+  if (idEven == "modalSimu") {
+    divVista.innerHTML = null;
+
+  }
+  else if(idEven == "modalSimuSimple") {
+    divVista = document.getElementById('modalFrontViewSyD');
+    divVista.innerHTML = null;
+    profundidadGral = document.getElementById("profundidad_s").value;
+    if (profundidadGral == 4) {
+      profundidadGral = 2
+    } else if (profundidadGral == 2) {
+      profundidadGral = 1
+    }
+    nivelesGral = document.getElementById("niveles_s").value;
+    ancho = document.getElementById("ancho_s").value
+    altoMts = document.getElementById("alto_s").value
+    console.log("asds");
+  }
+  console.log();
   
   // const pasilloSup = document.getElementById('pasilloFrontSup');
 
@@ -387,7 +409,7 @@ const dibujarVistaFrontal = () => {
   divVista.appendChild(cotaAltura);
 
   divDepositoFront = document.createElement("div");
-divDepositoFront.className = "divSimuFront"
+  divDepositoFront.className = "divSimuFront"
 
 
   //For que recorre las profundidades
@@ -471,6 +493,8 @@ const dibujarVistaSuperior = () => {
   const fragment = document.createDocumentFragment()
   divcallesIzq.innerHTML = null
   divcallesDerecha.innerHTML = null  
+  divVista.innerHTML=null;
+  
 
 
 
@@ -486,7 +510,7 @@ const dibujarVistaSuperior = () => {
   fragment.appendChild(divCotaSup);
   fragment.appendChild(cotaLateral);
 
-  const pasilloSupView = document.createElement('div');
+  let pasilloSupView = document.createElement('div');
   pasilloSupView.id = "pasilloSupView";
   pasilloSupView.className = "pasilloSup";
   pasilloSupView.innerHTML = `
@@ -534,6 +558,97 @@ const dibujarVistaSuperior = () => {
     for (let prof = profundidadGral; prof > 0; prof--) {
       const profCarga = document.createElement('div');
       profCarga.id = `profCargaDer${prof}`;
+      profCarga.className = 'profCargaIzq';
+      calleNew.appendChild(profCarga);
+    }
+    divcallesDerecha.appendChild(calleNew)
+    fragment.appendChild(divcallesDerecha)
+    
+  }
+    divVista.appendChild(fragment)
+
+}
+
+
+
+// Dibujas vista superior para SIMPLE Y DOBLE
+const dibujarVistaSuperiorSyD = () => {
+  let divVista = document.getElementById('divVistaSupSyD');
+  let divcallesIzq = document.getElementById('callesIzquierdaSyD');
+  let divcallesDerecha = document.getElementById('callesDerechaSyD');
+  let profundidadGral = document.getElementById("profundidad_s").value;
+  let callesGral = document.getElementById("calles_s").value;
+  let anchoTotal = document.getElementById("ancho_s").value
+  let largoTotal = document.getElementById("largo_s").value;
+  let pasillo = document.getElementById("pasilloSupViewSyD")
+  const fragment = document.createDocumentFragment()
+  divcallesIzq.innerHTML = null
+  divcallesDerecha.innerHTML = null  
+  divVista.innerHTML=null;
+  
+
+
+
+
+  let divCotaSup = document.createElement("div");
+  divCotaSup.className = "cotaSuperiorS";
+  divCotaSup.innerHTML = `[ Largo total ${largoTotal}Mts - ${callesGral} Calles ]`;
+
+  let cotaLateral = document.createElement("div");
+  cotaLateral.className = "cotaLateralS cotaInfo";
+  cotaLateral.innerHTML = `[ Ancho total ${anchoTotal}Mts - ${profundidadGral} Profundidades ]`;
+
+  fragment.appendChild(divCotaSup);
+  fragment.appendChild(cotaLateral);
+
+  const pasilloSupView = document.createElement('div');
+  pasilloSupView.id = "pasilloSupViewSyD";
+  pasilloSupView.className = "pasilloSup";
+  pasilloSupView.innerHTML = `
+  <div style= "position: absolute;"> <img src="./img/transSup.svg" alt=""> </div>
+  <div class="pasilloSupRiel" > </div>
+  `;
+
+
+  //Borrar pasillo.
+  if(typeof(pasillo) != 'undefined' && pasillo != null){
+    pasillo.remove();
+  }
+
+  //for que recorre las calles
+  for (let calles = 1; calles <= callesGral; calles++) {
+    //Por cada calle crea un div
+    const calleNew = document.createElement('div');
+    calleNew.id = `calleIzq${calles}`
+    calleNew.className = 'calleIzq'
+    const divPasillo = document.createElement('div')
+    divPasillo.className = 'pasilloCelda'
+    
+    //for que recorre profundidad
+    for (let prof = profundidadGral; prof > 0; prof--) {
+      const profCarga = document.createElement('div');
+      profCarga.id = `profCargaIzqSyD${prof}`;
+      profCarga.className = 'profCargaIzq';
+      calleNew.appendChild(profCarga);
+    }
+    divcallesIzq.appendChild(calleNew)
+    fragment.appendChild(divcallesIzq)
+    pasilloSupView.appendChild(divPasillo)
+    
+  }
+
+  fragment.appendChild(pasilloSupView);
+
+  for (let calles = 1; calles <= callesGral; calles++) {
+    //Por cada calle crea un div
+    const calleNew = document.createElement('div');
+    calleNew.id = `calleDerSyD${calles}`
+    calleNew.className = 'calleIzq'
+    
+    //for que recorre profundidad
+    for (let prof = profundidadGral; prof > 0; prof--) {
+      const profCarga = document.createElement('div');
+      profCarga.id = `profCargaDerSyD${prof}`;
       profCarga.className = 'profCargaIzq';
       calleNew.appendChild(profCarga);
     }

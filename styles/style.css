@@ -100,6 +100,14 @@ nav {
   padding: 1px;
   
 }
+.wareSelec{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 10px;
+}
 .dimensiones {
   grid-column: 1 / 1;
 }
@@ -293,8 +301,8 @@ sub {
 
 .formSimpleoDoble{
   grid-column: 1/4;
-  margin-right: 3rem;
   grid-column: 1 / 5;
+  margin-left: 1.5rem;
 }
 
 .wrapperSyD{
@@ -308,6 +316,7 @@ sub {
 }
 .bgSimple{
   background: url(../img/paterTriangles.svg);
+  padding-right: 0;
 }
 .wrapInfo{
   grid-column: 5/-1;
@@ -499,6 +508,8 @@ sub {
   display: grid;
   grid-template-columns: repeat(2, auto);
   background-image: url(../img/solid.png);
+  width: fit-content;
+  margin: auto;
 }
 .cotaSuperiorS{
   height: min-content;
@@ -566,11 +577,11 @@ sub {
 }
 @media (max-width: 920px) {
   .wrapper {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: repeat(9, 1fr);
+    /* display: grid; */
+    /* margin-top: 20px; */
+    /* grid-template-columns: repeat(9, 1fr); */
     gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    /* grid-auto-rows: minmax(100px, auto); */
   }
   .modal-content { 
     display: block;
@@ -630,6 +641,9 @@ sub {
   }
   .wrapperFormPrincipal{
     margin-inline: auto;
+  }
+  .wareSelec{
+    align-items: center;
   }
 }
 
