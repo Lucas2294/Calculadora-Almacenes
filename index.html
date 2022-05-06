@@ -576,7 +576,7 @@
     <div class="modal-content">
       <div class="close">+</div>
       <div class="row col-lg-12 page-header">
-        <h1 style="margin-top: 0px" class="modalT">Medidas <small class="modalT1">de unidad de carga.</small></h1>
+        <h1 style="margin-top: 0px" class="modalT">Configuración de medidas. <small class="modalT1"></small></h1>
       </div>
       <div role="tabpanel2">
         <ul class="nav nav-tabs" role="tablist">
@@ -863,9 +863,9 @@
     let divMulti = document.querySelector("#popup");
 
 
-    // LUCAS
-    let modalLucas = document.querySelector('#modalLucas');
-    // modalLucas
+    // // LUCAS
+    // let modalLucas = document.querySelector('#modalLucas');
+    // // modalLucas
 
     document.getElementById("modalSimu").addEventListener("click", (e) => {
       dibujarVistaFrontal(e.target.id);
@@ -901,12 +901,12 @@
     }, false);
 
 
-    document.addEventListener('keydown', (event) => {
-      const keyName = event.keyCode;
-      if (keyName === 27) {
-        modalLucas.style.display = "none";
-      }
-    });
+    // document.addEventListener('keydown', (event) => {
+    //   const keyName = event.keyCode;
+    //   if (keyName === 27) {
+    //     modalLucas.style.display = "none";
+    //   }
+    // });
 
     // Abre Modal - Configuracion de unidad de carga
     document.querySelector("#ucargasimple").addEventListener("click", () => {

@@ -388,9 +388,8 @@ const dibujarVistaFrontal = (idEven) => {
     nivelesGral = document.getElementById("niveles_s").value;
     ancho = document.getElementById("ancho_s").value
     altoMts = document.getElementById("alto_s").value
-    console.log("asds");
   }
-  console.log();
+
   
   // const pasilloSup = document.getElementById('pasilloFrontSup');
 
@@ -585,6 +584,12 @@ const dibujarVistaSuperiorSyD = () => {
   divcallesIzq.innerHTML = null
   divcallesDerecha.innerHTML = null  
   divVista.innerHTML=null;
+  
+  if (profundidadGral == 4) {
+    profundidadGral = 2
+  } else if (profundidadGral == 2) {
+    profundidadGral = 1
+  }
   
 
 
