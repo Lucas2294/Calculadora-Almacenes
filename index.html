@@ -90,7 +90,7 @@
                     onfocusout="setPalletHeight('multi')" />
                 </div>
                 <div class="buttonHolder colUno">
-                  <button onclick="calcularMultiprof(5)" type="#" class="btn btn-primary"
+                  <button onclick="calcularMultiprof(5); dibujarVistaFrontal('modalSimu'); dibujarVistaSuperior('modalSimu')" type="#" class="btn btn-primary"
                     data-index="5">Calcular</button>
                 </div>
 
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="buttonHolder colDos rw6">
-                  <button onclick="calcularDimensionesMultiprof(0)" type="#" class="btn btn-primary"
+                  <button onclick="calcularDimensionesMultiprof(0); dibujarVistaFrontal('modalSimu'); dibujarVistaSuperior('modalSimu')" type="#" class="btn btn-primary"
                     data-index="9">Calcular</button>
                 </div>
 
@@ -131,9 +131,9 @@
                   <button id="ucarga" type="button" class="btn btn-secondary abrirModal">Configuración de
                     medidas</button>
                 </div>
-                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                <!-- <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
                   <button id="modalSimu" type="button" class="btn btn-secondary abrirModal">Simular almacén</button>
-                </div>
+                </div> -->
 
               </div>
               <!-- <div class="formDimAndUnits wrappercalc wrapperMultiprof" id="multiWrap">
@@ -337,11 +337,11 @@
                   </form>
                 </div>
                 <div class="buttonHolder inputform" style="grid-column: 1 / 2">
-                  <button onclick="calcularSimple(14)" type="#" class="btn btn-primary"
+                  <button onclick="calcularSimple(14); dibujarVistaFrontal('modalSimuSimple'); dibujarVistaSuperiorSyD('modalSimuSimple')" type="#" class="btn btn-primary"
                     data-index="14">Calcular</button>
                 </div>
                 <div class="buttonHolder inputform" style="grid-column: 2 / 4">
-                  <button onclick="calcularDimensionesSimple(9)" type="#" class="btn btn-primary"
+                  <button onclick="calcularDimensionesSimple(9); dibujarVistaFrontal('modalSimuSimple'); dibujarVistaSuperiorSyD('modalSimuSimple')" type="#" class="btn btn-primary"
                     data-index="18">Calcular</button>
                 </div>
                 <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
@@ -349,10 +349,10 @@
                     de
                     carga</button>
                 </div>
-                <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
+                <!-- <div class="buttonHolder" style="text-align: center; grid-column: 1 / -1">
                   <button id="modalSimuSimple" type="button" class="btn btn-secondary abrirModal">Simular
                     almacén</button>
-                </div>
+                </div> -->
               </div>
 
               <div class="dimensionesCarga">
@@ -867,15 +867,15 @@
     // let modalLucas = document.querySelector('#modalLucas');
     // // modalLucas
 
-    document.getElementById("modalSimu").addEventListener("click", (e) => {
-      dibujarVistaFrontal(e.target.id);
-      dibujarVistaSuperior(e.target.id);
-    });
+    // document.getElementById("modalSimu").addEventListener("click", (e) => {
+    //   dibujarVistaFrontal(e.target.id);
+    //   dibujarVistaSuperior(e.target.id);
+    // });
 
-    document.getElementById("modalSimuSimple").addEventListener("click", (e) => {
-      dibujarVistaFrontal(e.target.id);
-      dibujarVistaSuperiorSyD(e.target.id);
-    });
+    // document.getElementById("modalSimuSimple").addEventListener("click", (e) => {
+    //   dibujarVistaFrontal(e.target.id);
+    //   dibujarVistaSuperiorSyD(e.target.id);
+    // });
 
 
 

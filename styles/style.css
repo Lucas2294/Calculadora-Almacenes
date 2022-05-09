@@ -363,6 +363,7 @@ sub {
     padding-right: 0;
     padding-top: 1rem;
     margin-bottom: 0;
+    align-items: flex-end;
 }
 .cotaAnchoFrontal{
   grid-column: 1/-1;
